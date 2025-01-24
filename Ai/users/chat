@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Theme Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Discord Theme Page</h1>
+            <div class="login-prompt" id="loginPrompt">Please log in before accessing this feature</div>
+        </header
+        <main>
+            <div class="upload-section">
+                <h2>Add Files or Images</h2>
+                <input type="file" id="fileInput" multiple>
+                <button id="uploadBtn">+</button>
+            </div
+            <div class="chat-section">
+                <h2>Chat with AI</h2>
+                <textarea id="chatInput" placeholder="Type your message..."></textarea>
+                <button id="sendBtn">Send</button>
+            </div
+            <div class="settings-section">
+                <h2>Settings</h2>
+                <input type="text" id="webhookInput" placeholder="Enter Webhook URL">
+                <input type="text" id="botTokenInput" placeholder="Enter Bot Token">
+            </div>
+        </main>
+    </div
+    <script>
+        document.getElementById('uploadBtn').addEventListener('click', function() {
+            const fileInput = document.getElementById('fileInput');
+            if (fileInput.files.length > 0) {
+                alert("Files uploaded: " + fileInput.files.length);
+            }
+       
+        document.getElementById('sendBtn').addEventListener('click', function() {
+            const chatInput = document.getElementById('chatInput').value;
+            if (chatInput) {
+                alert("Message sent: " + chatInput);
+                document.getElementById('chatInput').value = ''; // Clear input
+            }
+        });
+    </script>
+</body>
+</html>
