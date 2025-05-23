@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email and Password Form</title>
+    <title>Minecraft Appleid</title>
     <style>
         body {
-            background-color: #1a1a1a; /* Very dark grey background */
+            background-color: #0d0d0d; /* Very dark grey background */
             color: white; /* White text for contrast */
             font-family: Arial, sans-serif;
             display: flex;
@@ -17,37 +17,71 @@
         }
         .container {
             display: flex;
-            align-items: center;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center elements horizontally */
+        }
+        .message {
+            font-size: 24px;
+            margin-bottom: 20px; /* Space below the message */
+            text-align: center; /* Center the text */
         }
         .form {
             display: flex;
             flex-direction: column;
-            margin-left: 20px;
+            align-items: center;
         }
         .input {
+            background-color: #333; /* Darker input background */
             border: none;
             border-radius: 25px;
             padding: 10px;
             margin: 10px 0;
             font-size: 16px;
-            background-color: #333; /* Darker input background */
             color: white;
+            width: 200px; /* Fixed width for inputs */
+            text-align: center; /* Center text */
         }
-        .message {
-            font-size: 18px;
-            margin-right: 20px;
+        .button {
+            background-color: #555; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 15px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #777; /* Lighter grey on hover */
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="message">
-            <p>Here's Your Daily Email + Password</p>
+            <p>Minecraft Appleid</p>
         </div>
         <div class="form">
-            <input type="email" class="input" placeholder="Email" required>
-            <input type="password" class="input" placeholder="Password" required>
+            <div>
+                <input type="text" class="input" value="example@example.com" readonly>
+                <button class="button" onclick="copyToClipboard('example@example.com')">Copy</button>
+            </div>
+            <div>
+                <input type="text" class="input" value="yourpassword" readonly>
+                <button class="button" onclick="copyToClipboard('yourpassword')">Copy</button>
+            </div>
         </div>
     </div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard: ' + text);
+            }).catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
